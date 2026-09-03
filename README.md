@@ -92,7 +92,7 @@ def attention_gate(g, s, num_filters):
     return out * ws
 ```
 
-This is a standard self-attention gate created for a convolutional neural network. This helps the model understand where to focus when calculating the class of each pixel. 
+This is an attention gate designed for a convolutional neural network. It uses the decoder feature map as a gating signal to determine which features from the encoder skip connection are relevant, allowing the model to focus on regions that are more important for pixel-wise segmentation.
 
 #### 4. Decoder block 
 ```
@@ -115,12 +115,16 @@ The model follows the standard U-net architecture described in [GeeksForGeeks](h
 
 ### The actual architecture of the Attention U-net++
 
-The architecture of the Attention U-net++ is a little more complicated that I expected. It involved me removing almost the entirety of the code blocks as it was too many paths and states to track eventually. 
+The architecture of the Attention U-net++ is a little more complicated than I expected. It involved me removing almost the entirety of the code blocks as it was too many paths and states to track eventually. 
 
 ![UNet++ Architecture](https://media.geeksforgeeks.org/wp-content/uploads/20230628132335/UNET.webp)
-As we can see, the architecture of the standard U-net++ is as given above.
+The model follows the standard U-net architecture described in GeeksForGeeks but with the addition of attention gates in the decoder blocks as defined above.
 
 It contains dense skip connections along with deep supervision for best results.
+
+The architecture implemented in this project is shown below. This diagram represents the actual Attention U-net used for the experiments, including the encoder, bottleneck, decoder, skip connections, and attention gates.
+
+![My Attention U-net++ Architecture](U_net%20arch.png "Attention U-net Architecture")
 
 ## 5. Training the models 
 

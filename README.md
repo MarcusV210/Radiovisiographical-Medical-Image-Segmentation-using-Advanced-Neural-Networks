@@ -124,7 +124,7 @@ It contains dense skip connections along with deep supervision for best results.
 
 The architecture implemented in this project is shown below. This diagram represents the actual Attention U-net used for the experiments, including the encoder, bottleneck, decoder, skip connections, and attention gates.
 
-![My Attention U-net++ Architecture](U_net%20arch.png "Attention U-net Architecture")
+![My Attention U-net++ Architecture](U_net%20Arch.png "Attention U-net Architecture")
 
 ## 5. Training the models 
 
